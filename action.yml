@@ -35,7 +35,7 @@ inputs:
     description: 'version of CMake to install - e.g. 3.10.2.4988404'
   script:
     description: 'custom script to run - e.g. `./gradlew connectedCheck`'
-    required: true
+    required: false
 runs:
   using: 'node12'
   main: 'lib/main.js'

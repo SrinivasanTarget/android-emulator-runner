@@ -83,7 +83,7 @@ async function run() {
     const cmakeVersion = !cmakeInput ? undefined : cmakeInput;
 
     // custom script to run
-    const scriptInput = core.getInput('script', { required: true });
+    const scriptInput = core.getInput('script', { required: false });
     const scripts = parseScript(scriptInput);
     console.log(`Script:`);
     scripts.forEach(async (script: string) => {
@@ -108,9 +108,6 @@ async function run() {
     } catch (error) {
       core.setFailed(error.message);
     }
-
-    // finally kill the emulator
-    await killEmulator();
   } catch (error) {
     // kill the emulator so the action can exit
     await killEmulator();
